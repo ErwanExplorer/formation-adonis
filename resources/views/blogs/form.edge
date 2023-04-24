@@ -1,0 +1,28 @@
+<form action="" method="POST" enctype="multipart/form-data">
+
+    <div class="mb-3">
+         @!component('components/input', {
+            name: 'title',
+            value: post.title,
+            label: 'Titre'
+         })
+    </div>
+
+    <div class="mb-3">
+        @!component('components/input', {
+            name: 'content',
+            value: post.content,
+            label: 'Contenu',
+            type: 'textarea'
+        })
+    </div>
+
+    <div class="mb-3">
+        <input {{post.online ? 'checked' : ''}} type="checkbox" name="online" class="form-check-input" id="online">
+        <label class="form-check-label" for="online">En ligne ?</label>
+    </div>
+
+
+
+    <button class="btn btn-primary">Sauvegarder</button>
+</form>
