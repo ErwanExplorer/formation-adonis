@@ -19,6 +19,9 @@
 
                     <form action="{{route('posts.show', {id: post.id}) }}?_method=DELETE" method="POST">
                         <button class="btn btn-danger">Suprimer</button>
+                        <p>
+                            <a href="{{route('posts.edit', {id: post.id}) }}" class="btn btn-primary">Modifier</a>
+                        </p>
                     </form>
                 </div>
             </li>
