@@ -1,12 +1,14 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Post from 'App/Models/Post';
 import UpdatePostValidator from 'App/Validators/UpdatePostValidator';
-
+import Database from '@ioc:Adonis/Lucid/Database';
 
 export default class BlogsController {
 
-    async index({ view }: HttpContextContract) {
-        const posts = await Post.all()
+    async index({ view, request }: HttpContextContract) {
+        //const posts = await Post.all()
+        const page = request.input("page", 1)
+        const posts = await Database.from(Post.table).paginate(page, 2)
         return view.render("blogs/index", { posts });
     }
 
